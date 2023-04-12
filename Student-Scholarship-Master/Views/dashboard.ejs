@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/examples/sign-in/signin.css">
+    <title>Dashboard</title>
+</head>
+<body>
+	<div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card">
+                    <div class="card-header">
+                        <b>Personal Informations</b>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Name: </b><%=name%></h5>
+                        <p class="card-text"><b>Student ID: </b><%=studentId%></p>
+                        <p class="card-text"><b>Email adress: </b> <%=email%></p>
+                        <p class="card-text"><b>Phone no: </b><%=phone%></p>
+                        <p class="card-text"><b>Current Status of application: </b><%=currentStatus%></p>
+                        <p>
+                            <a class="btn btn-dark mt-3" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Update Info
+                            </a>
+                        </p>
+                        <div class="collapse" id="collapseExample">
+                            <div class="card card-body">
+                                <form action="/dashboard" method="POST">
+                                    <div class="form-group row mb-0">
+                                        <label for="staticName" class="col-sm-2 col-form-label">Name:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" readonly class="form-control-plaintext" id="staticName" value="<%=name%>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mb-2">
+                                        <label for="staticid" class="col-sm-2 col-form-label">ID:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" readonly class="form-control-plaintext" id="staticid" name="studentId" value="<%=studentId%>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mb-2">
+                                        <label for="changeEmail" class="col-sm-2 col-form-label">Email:</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="changeEmail" name="email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mb-2">
+                                        <label for="changeEmail" class="col-sm-2 col-form-label">Phone:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" style="appearance: none;" class="form-control" id="changeEmail" name="phone">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-dark mt-2" type="submit">Save</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+				<div class="card">
+                    <div class="card-header">
+                        <b>Scholarship Informations</b>
+                    </div>
+					
+                    <div class="card-body">
+						<%for (var i=0; i<semesterName.length; i++){ %>
+                        <p class="card-text"><b><%=semesterName[i]%><%=semesterYear[i]%>: </b><%=scholarshipStatus[i]%></p>
+						<% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+</body>
+</html>
